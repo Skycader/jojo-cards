@@ -1,0 +1,23 @@
+.example-card {
+  max-width: 400px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.example-header-image {
+  font-size: 2rem;
+}
+
+.header {
+  border-bottom: 1px solid #313131;
+}
+
+.action {
+  border-top: 1px solid #313131;
+  background-color: var(--mdc-elevated-card-container-color);
+}
+
+// .example-header-image {
+//   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+//   background-size: cover;
+// }

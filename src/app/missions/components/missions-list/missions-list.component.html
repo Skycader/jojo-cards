@@ -1,0 +1,69 @@
+<div
+  style="padding: 50px"
+  *ngIf="openHours(5, 20); else elseRef"
+  class="parent"
+  [class.loading]="loading"
+  [class.finish]="finish"
+>
+  <mat-tab-group style="">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div
+          style="
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 5px;
+            margin-bottom: 10px;
+          "
+        >
+          ⬤ Ежедневные задания ({{ commonMissions | completed }} /
+          {{ commonMissions.length }})
+          <!-- <mat-slide-toggle -->
+          <!--   color="primary" -->
+          <!--   [checked]="hideCompletedMissions" -->
+          <!--   (change)="toggle()" -->
+          <!--   class="ms-2" -->
+          <!-- ></mat-slide-toggle> -->
+        </div>
+      </ng-template>
+      <br />
+      <br />
+
+      <ng-container *ngFor="let mission of commonMissions">
+        <app-mission
+          [mission]="mission"
+          [class.hide]="mission.isCompleted() && hideCompletedMissions"
+        />
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="⬤ Редкие задания">
+      <br />
+      <ng-container *ngFor="let mission of rareMissions">
+        <app-mission [mission]="mission" />
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="⬤ Эпические задания">
+      <br />
+      <ng-container *ngFor="let mission of epicMissions">
+        <app-mission [mission]="mission" />
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="⬤ Легендарные задания">
+      <br />
+      <ng-container *ngFor="let mission of legendaryMissions">
+        <app-mission [mission]="mission" />
+      </ng-container>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<span *ngIf="update$ | async"></span>
+
+<ng-template #elseRef>
+  <div class="container">
+    <div class="h1">403</div>
+    <div class="h2">Работаем с 5:00 до 20:00</div>
+    <br />
+    <div class="h4">Приходите завтра за новыми заданиями!</div>
+  </div>
+</ng-template>

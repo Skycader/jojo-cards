@@ -1,0 +1,36 @@
+.example-card {
+  max-width: 400px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.container {
+  overflow: hidden;
+
+  mat-icon {
+    cursor: pointer;
+  }
+}
+
+.row {
+  padding-bottom: 30px;
+  overflow: scroll;
+  height: 90vh;
+}
+
+.example-header-image {
+  font-size: 2rem;
+}
+
+.header {
+  border-bottom: 1px solid #313131;
+}
+
+.action {
+  border-top: 1px solid #313131;
+  background-color: var(--mdc-elevated-card-container-color);
+}
+
+.accent {
+  background: #ff4081;
+}

@@ -1,0 +1,56 @@
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span style="letter-spacing: 5px"> ⬤ </span><wbr />
+      <span>Обычный контейнер</span>
+      <span
+        [matBadge]="getKeys(0) ? getKeys(0) : ''"
+        matBadgeSize="small"
+        style="color: transparent"
+        >x</span
+      >
+    </ng-template>
+    <app-package containerType="common" [keyType]="0" [itemsAmount]="10" />
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span style="color: #3f51b5; letter-spacing: 5px"> ⬤ </span><wbr />
+      <span>Редкий контейнер</span>
+      <span
+        [matBadge]="getKeys(1) ? getKeys(1) : ''"
+        matBadgeSize="small"
+        style="color: transparent"
+        >x</span
+      >
+    </ng-template>
+
+    <app-package containerType="rare" [keyType]="1" [itemsAmount]="5" />
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span style="color: #c5a93d; letter-spacing: 5px"> ⬤ </span><wbr />
+      <span>Эпический контейнер</span>
+      <span
+        [matBadge]="getKeys(2) ? getKeys(2) : ''"
+        matBadgeSize="small"
+        style="color: transparent"
+        >x</span
+      >
+    </ng-template>
+
+    <app-package containerType="epic" [keyType]="2" [itemsAmount]="3" />
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span style="color: orange; letter-spacing: 5px"> ⬤ </span><wbr />
+      <span>Легендарный контейнер</span>
+      <span
+        [matBadge]="getKeys(3) ? getKeys(3) : ''"
+        matBadgeSize="small"
+        style="color: transparent"
+        >x</span
+      >
+    </ng-template>
+    <app-package containerType="legendary" [keyType]="3" [itemsAmount]="1" />
+  </mat-tab>
+</mat-tab-group>

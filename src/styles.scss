@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./styles/root.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@font-face {
+  font-family: "VSS";
+  src: url("/assets/fonts/googlesans.woff2");
+}
+
+.mdc-slider__track--inactive {
+  background-color: transparent !important;
+}
+
+.mdc-slider__track--active {
+  background-color: transparent !important;
+}
+
+.mdc-slider__track--active {
+  background-color: transparent !important;
+}
+
+.mat-mdc-slider .mdc-slider__thumb-knob {
+  border-color: #292929 !important;
+}
+
+.mat-mdc-slider .mdc-slider__track--active_fill {
+  border-color: #292929 !important;
+}
+
+.mat-mdc-slider .mat-ripple .mat-mdc-slider-focus-ripple,
+.mat-mdc-slider .mat-ripple .mat-mdc-slider-active-ripple {
+  background-color: transparent !important;
+}
+
+.mdc-slider__thumb--with-indicator {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.mdc-button.amount {
+  min-width: 35px !important;
+}
+
+.mdc-button.help {
+  width: 40px !important;
+  min-width: 40px !important;
+
+  mat-icon {
+    margin: 0px !important;
+    position: absolute;
+  }
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  padding: 0px !important;
+}
+
+.completed {
+  opacity: 0.5;
+}
+
+.mat-mdc-card {
+  border-radius: var(--mdc-elevated-card-container-shape) !important;
+  background-color: var(--mdc-elevated-card-container-color) !important;
+  border-width: 0 !important;
+  border-style: solid;
+  border-color: var(--mdc-elevated-card-container-color) !important;
+  box-shadow: var(--mdc-elevated-card-container-elevation) !important;
+}
+
+.mat-mdc-card-avatar {
+  margin-top: 5px !important;
+  margin-bottom: 7px !important;
+}

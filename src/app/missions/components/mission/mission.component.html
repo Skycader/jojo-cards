@@ -1,0 +1,157 @@
+<mat-toolbar
+  matRipple
+  [class.disabled]="mission.isDisabled()"
+  [class.completed]="mission.isCompleted()"
+  class="todo-item"
+  style="
+    height: 100px;
+    border-radius: 25px 25px 0px 0px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+  "
+  [class.gold-mission]="mission.getRewardCoef() === 4"
+  [class.silver-mission]="mission.getRewardCoef() === 3"
+  [class.bronze-mission]="mission.getRewardCoef() === 2"
+>
+  <div style="width: 10px"></div>
+  <button
+    id="days-left-indicator"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    [disabled]="mission.isDisabled() || mission.getConfig().autocomplete"
+    (click)="mission.complete(); getReward(mission, reward)"
+  >
+    <mat-icon>done</mat-icon>
+  </button>
+
+  <span id="todo-title">{{ mission.getConfig().title }}</span>
+  <span class="example-spacer"></span>
+
+  <mat-chip-listbox>
+    <mat-chip-option
+      matTooltip="Уровень навыка"
+      *ngIf="mission.getConfig().level"
+      >{{ mission.getConfig().level }}</mat-chip-option
+    >
+
+    <mat-chip-option>{{ mission.getConfig().step }}%</mat-chip-option>
+    <mat-chip-option
+      color="accent"
+      [selected]="mission.getConfig().refreshTime.includes('h')"
+      [matTooltip]="
+        mission.getConfig().refreshTime.includes('h')
+          ? 'У этого задания длительный перерыв'
+          : 'Время перерыва'
+      "
+      >{{ mission.getConfig().refreshTime }}</mat-chip-option
+    >
+    <mat-chip-option matTooltip="Время на повторное появление задания">{{
+      mission.getConfig().respawnTime
+    }}</mat-chip-option>
+    <mat-chip-option
+      matTooltip="Очки опыта"
+      style="display: flex; justify-content: center"
+      >{{ mission.getConfig().xp | prettyNumber }}
+      <img
+        style="margin-left: 1px; margin-bottom: 2px"
+        src="assets/images/common/xp.webp"
+    /></mat-chip-option>
+
+    <mat-chip-option
+      color="primary"
+      matTooltip="Коэфициент награды"
+      selected
+      *ngIf="mission.getRewardCoef() > 1"
+    >
+      x{{ mission.getRewardCoef() }}</mat-chip-option
+    >
+
+    <mat-chip-option
+      color="warn"
+      [matTooltip]="
+        mission.earlyBirdReward() > 2 ? 'Утренний бонус' : 'Дневной бонус'
+      "
+      selected
+      *ngIf="mission.earlyBirdReward() > 1"
+    >
+      <div
+        style="
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <mat-icon
+          *ngIf="mission.earlyBirdReward() === 3"
+          style="font-size: 20px; width: 20px; height: 20px"
+          >brightness_high</mat-icon
+        >
+
+        <mat-icon
+          *ngIf="mission.earlyBirdReward() === 2"
+          style="font-size: 20px; width: 20px; height: 20px"
+          >brightness_low</mat-icon
+        >
+      </div>
+    </mat-chip-option>
+  </mat-chip-listbox>
+
+  <div style="width: 100px"></div>
+  <!-- Check the todo  -->
+
+  <div #reward style="width: 80px" [class.hidden]="mission.isCompleted()">
+    <span
+      style="color: transparent; position: absolute; right: 45px; top: 20px"
+      [matBadge]="
+        mission.getReward().amount * mission.getRewardCoef() > 1
+          ? mission.getReward().amount * mission.getRewardCoef()
+          : ''
+      "
+      >X</span
+    >
+    <img
+      *ngIf="mission.getReward().keyType === 0"
+      style="width: 100%"
+      src="assets/images/keys/common.png"
+    />
+    <img
+      *ngIf="mission.getReward().keyType === 1"
+      style="width: 100%"
+      src="assets/images/keys/rare.png"
+    />
+    <img
+      *ngIf="mission.getReward().keyType === 2"
+      style="width: 100%"
+      src="assets/images/keys/epic.png"
+    />
+    <img
+      *ngIf="mission.getReward().keyType === 3"
+      style="width: 100%"
+      src="assets/images/keys/legendary.png"
+    />
+  </div>
+  <div style="width: 30px"></div>
+
+  <mat-progress-bar
+    color="primary"
+    style="position: absolute; bottom: 0px; z-index: 20"
+    mode="determinate"
+    [value]="mission.getProgress()"
+  >
+  </mat-progress-bar>
+
+  <mat-progress-bar
+    *ngIf="mission.getRequiredProgress() > 0"
+    color="primary"
+    style="position: absolute; bottom: 0px; z-index: 25"
+    mode="buffer"
+    [value]="mission.getProgress()"
+    [bufferValue]="mission.getRequiredProgress()"
+  >
+  </mat-progress-bar>
+</mat-toolbar>

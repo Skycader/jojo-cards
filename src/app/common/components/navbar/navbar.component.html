@@ -1,0 +1,154 @@
+<p [class.hide-navbar]="hideNavbar">
+  <mat-toolbar color="primary" style="overflow: hidden">
+    <span class="vr d-none d-sm-block d-md-block d-lg-block d-xl-block"></span>
+
+    <img
+      style="width: 50px; height: auto; margin-right: 10px; cursor: pointer"
+      [src]="getRang().icon"
+      (click)="showRangs()"
+    />
+
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        font-family: Main;
+        height: calc(100% + 5px);
+        align-items: flex-start;
+        justify-content: center;
+      "
+    >
+      <div
+        style="
+          font-size: 15px;
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+        "
+      >
+        <div>{{ getRang().title }}</div>
+
+        <div>Lv. {{ getRang().rang }}</div>
+      </div>
+
+      <mat-progress-bar
+        style="width: 300px"
+        mode="determinate"
+        color="accent"
+        [value]="nextRangProgress()"
+      ></mat-progress-bar>
+      <div
+        style="
+          font-size: 15px;
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+        "
+      >
+        <div>Skycader</div>
+        <div>
+          <img
+            style="width: 12px; height: auto; margin-bottom: 2px"
+            src="assets/images/common/xp.webp"
+          />
+          {{ getXp() }} / {{ getNextRangXp() }}
+        </div>
+      </div>
+    </div>
+
+    <span class="spacer"></span>
+
+    <a
+      class="nav-btn"
+      style="margin-right: 200px; font-family: &quot;Main&quot;"
+      [routerLink]="['/']"
+    >
+      <!-- <span class="logo me-2"><mat-icon>explore</mat-icon></span> -->
+      <span> 💫 Starway</span>
+    </a>
+    <span class="spacer"></span>
+
+    <div
+      class="streak"
+      [matTooltip]="
+        xpToday < 5000
+          ? 'Наберите ещё ' +
+            (5000 - xpToday) +
+            'xp чтобы продлить ударный режим'
+          : 'Сегодня вы набрали уже ' + xpToday + 'xp'
+      "
+    >
+      <div class="fire" [class.grey]="!doneToday">🔥</div>
+      {{ streak }}
+    </div>
+
+    <span *ngIf="dailyRefresh | async"></span>
+
+    <span class="vr d-none d-sm-block d-md-block d-lg-block d-xl-block"></span>
+
+    <a
+      [routerLink]="['/missions']"
+      matTooltip="Задания"
+      routerLinkActive="selected"
+    >
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon
+          [matBadge]="getMissions()"
+          matBadgeColor="accent"
+          matBadgeSize="small"
+          >new_releases</mat-icon
+        >
+      </button>
+    </a>
+
+    <a
+      [routerLink]="['/storage']"
+      matTooltip="Склад"
+      routerLinkActive="selected"
+    >
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon
+          [matBadge]="getItems()"
+          matBadgeColor="accent"
+          matBadgeSize="small"
+          >shopping_cart</mat-icon
+        >
+      </button>
+    </a>
+
+    <a
+      *ngIf="isLoggedIn | async"
+      id="sign-form"
+      [routerLink]="['/profile']"
+      matTooltip="Profile"
+      routerLinkActive="selected"
+    >
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>face</mat-icon>
+      </button>
+    </a>
+
+    <button
+      matTooltip="Navigation"
+      mat-icon-button
+      (click)="openSideNav()"
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+<div class="br"></div>
