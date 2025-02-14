@@ -1,23 +1,20 @@
 import { ItemModelInterface } from '../models/item.model';
-import { clothes } from './clothes.resource';
-import { coins } from './coins.resource';
-import { collectables } from './collectables.resource';
-import { energy } from './energy.resource';
-import { keys, multipleKeys } from './keys.resource';
-import { money } from './money.resource';
-import { partsItems } from './parts.resource';
-import { products } from './products.resource';
-import { rareProducts } from './rare-products.resource';
+import { commonCards } from './common-cards.resource';
+import { goldCards } from './gold.resource';
+import { legendaryCards } from './legendary.resource';
+import { premiumCards } from './premium.resource';
+import { rareCards } from './rare-cards.resource';
+import { silverCards } from './silver.resource';
+import { superRareCards } from './super-rare.resource';
+import { ultraRareCards } from './ultra-rare.resource';
 
 export const resourcesList: ItemModelInterface[] = [
-  ...coins,
-  ...keys,
-  ...multipleKeys,
-  ...energy,
-  ...money,
-  ...products,
-  ...partsItems,
-  ...clothes,
-  ...rareProducts,
-  ...collectables,
+  ...commonCards,
+  ...rareCards,
+  ...superRareCards,
+  ...ultraRareCards,
+  ...premiumCards,
+  ...silverCards,
+  ...goldCards,
+  ...legendaryCards,
 ];

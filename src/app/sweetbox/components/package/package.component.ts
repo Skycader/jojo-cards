@@ -23,7 +23,7 @@ export class PackageComponent {
   @Input() keyType: number = 0;
   @Input() itemsAmount: number = 10;
 
-  public debug = false;
+  public debug = true;
 
   public isShowingPackage = false;
   public containerEnum = containerEnum;
@@ -49,7 +49,7 @@ export class PackageComponent {
   ) { }
 
   addKey() {
-    this.storageService.addItem(keys[this.keyType], 10);
+    this.storageService.addItem(keys[this.keyType], 1);
   }
 
   public openContainer(openAll: boolean = false) {
@@ -105,6 +105,7 @@ export class PackageComponent {
       .map((card) => {
         return {
           ...card,
+          info: this.storageService.getItem(card) ? 'Дубль' : 'Новая карта',
           isRemoved: false,
           isShowingTitle: false,
           isTaken: false,
@@ -117,14 +118,7 @@ export class PackageComponent {
         if (!acc[key]) {
           // Если ключа еще нет, добавляем его с начальным значением
           acc[key] = {
-            title: item.title,
-            image: item.image,
-            sound: item.sound,
-            type: item.type,
-            amt: item.amt || 0,
-            scale: item.scale,
-            height: item.height,
-            amount: 0,
+            ...item,
           };
         }
 
@@ -141,17 +135,14 @@ export class PackageComponent {
     if (this.items[this.iterator]) {
       const currentItem = this.items[this.iterator];
 
-      this.storageService.addItem(
-        currentItem,
-        currentItem.amount * (currentItem.amt ? currentItem.amt : 1),
-      );
+      this.storageService.addItem(currentItem, currentItem.amount);
 
       this.playAudio(this.items[this.iterator].sound);
       this.items[this.iterator].isTaken = true;
       let copy = this.iterator;
-      setTimeout(() => {
-        this.items[copy].isShowingTitle = true;
-      }, 1000);
+      // setTimeout(() => {
+      //   this.items[copy].isShowingTitle = true;
+      // }, 1000);
     }
     if (this.iterator > 0) {
       this.items[this.iterator - 1].isRemoved = true;

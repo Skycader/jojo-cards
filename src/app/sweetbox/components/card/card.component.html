@@ -1,1 +1,18 @@
-<p>card works!</p>
+<div class="card" (click)="flip($event)">
+  <div class="card-inner" [class.flipped]="flipped">
+    <div
+      class="card-front"
+      style="background-image: url(assets/images/cards/backs/{{
+        card.type
+      }}-back.jpg);
+      {{ card.isTaken ? card.shadow : '' }}"
+    ></div>
+    <div
+      class="card-back"
+      style="
+             background-image: url({{ card.image }});
+        background-size: contain;
+      "
+    ></div>
+  </div>
+</div>

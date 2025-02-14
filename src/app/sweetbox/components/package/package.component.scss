@@ -102,7 +102,7 @@
       }
 
       .rare {
-        filter: drop-shadow(5px 5px 15px #3f51b5);
+        filter: drop-shadow(5px 5px 15px rgba(197, 1, 25, 255));
       }
 
       .gold {
@@ -129,7 +129,7 @@
     .card-front {
       top: 26px;
       width: 100%;
-      height: calc(100% - 30px);
+      height: calc(100% - -90px);
       background: #393939;
       position: absolute;
       z-index: 10;

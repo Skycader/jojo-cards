@@ -4,11 +4,11 @@
   "scripts": {
     "initialize": "node src/config/init.js",
     "start": "yarn ntl -s 3 -A --exclude cy:open cy:run upload build start initialize",
-    "serve": "ng serve",
+    "serve": "ng serve --port 4300",
     "build": "ng build --base-href https://skycader.github.io/sweetbox/",
     "upload": "npx angular-cli-ghpages --dir=dist/sweetbox/browser",
     "deploy": "yarn build && yarn upload",
-    "serve-public": "ng serve --host 0.0.0.0",
+    "serve-public": "ng serve --host 0.0.0.0 --port 4300",
     "test": "ng test",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
@@ -19,8 +19,8 @@
   "ntl": {
     "descriptions": {
       "initialize": "give your project a name...",
-      "serve": "start dev server on http://localhost:4200",
-      "serve-public": "start dev server on your public ip:4200",
+      "serve": "start dev server on http://localhost:4300",
+      "serve-public": "start dev server on your public ip:4300",
       "test": "Run project's tests with coverage",
       "e2e": "Run all e2e tests in background",
       "e2e-gui": "Open cypress and run tests visually",

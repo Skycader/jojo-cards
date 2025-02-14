@@ -21,6 +21,9 @@ declare global {
     repeat(count: number): Array<T>;
   }
   interface Array<T> {
+    setChance(chance: number): Array<T>;
+  }
+  interface Array<T> {
     getRandomElement(): T;
   }
 }

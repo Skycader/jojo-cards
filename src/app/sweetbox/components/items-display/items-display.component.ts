@@ -1,9 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { commonContainer } from '../../containers/common.config';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { rareContainer } from '../../containers/rare.config';
-import { legendaryContainer } from '../../containers/legendary.config';
-import { epicContainer } from '../../containers/epic.config';
 
 @Component({
   selector: 'app-items-display',
@@ -13,9 +10,9 @@ import { epicContainer } from '../../containers/epic.config';
 export class ItemsDisplayComponent {
   public containers = {
     common: commonContainer,
-    rare: rareContainer,
-    epic: epicContainer,
-    legendary: legendaryContainer,
+    rare: commonContainer,
+    epic: commonContainer,
+    legendary: commonContainer,
   };
 
   public items = this.containers[this.data.containerType]
@@ -45,9 +42,15 @@ export class ItemsDisplayComponent {
 
   public dict = {
     common: 'Обычный предмет',
+    rare: '',
+    superRare: '',
+    ultraRare: '',
+    premium: '',
+    silver: '',
+    gold: '',
     food: 'Еда',
-    rare: 'Редкий предмет',
     epic: 'Эпический предмет',
+
     legendary: 'Легендарный предмет',
   };
 
@@ -55,7 +58,7 @@ export class ItemsDisplayComponent {
     @Inject(MAT_DIALOG_DATA)
     public data: { containerType: 'common' | 'rare' | 'epic' | 'legendary' },
     private dialogRef: MatDialogRef<ItemsDisplayComponent>,
-  ) {}
+  ) { }
 
   public closeDialog() {
     this.dialogRef.close();

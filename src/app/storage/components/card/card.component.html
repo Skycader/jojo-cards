@@ -1,0 +1,17 @@
+<div class="card" (click)="flip()" [matBadge]="card.amount">
+  <div class="card-inner" [class.flipped]="flipped">
+    <div
+      class="card-front"
+      style="background-image: url(assets/images/cards/backs/{{
+        card.type
+      }}-back.jpg)"
+    ></div>
+    <div
+      class="card-back"
+      style="
+             background-image: url({{ card.image }});
+        background-size: contain;
+      "
+    ></div>
+  </div>
+</div>

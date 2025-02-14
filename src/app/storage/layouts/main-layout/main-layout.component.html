@@ -1,3 +1,26 @@
 <mat-tab-group>
-  <mat-tab label="Склад предметов"> <app-storage /> </mat-tab>
+  <mat-tab label="Обычные карточки">
+    <app-cards-storage cardsType="common" />
+  </mat-tab>
+  <mat-tab label="Редкие карточки">
+    <app-cards-storage cardsType="rare" />
+  </mat-tab>
+  <mat-tab label="Супер-редкие карточки">
+    <app-cards-storage cardsType="superRare" />
+  </mat-tab>
+  <mat-tab label="Ультра-редкие карточки">
+    <app-cards-storage cardsType="ultraRare" />
+  </mat-tab>
+  <mat-tab label="Премиальные карточки">
+    <app-cards-storage cardsType="premium" />
+  </mat-tab>
+  <mat-tab label="Серебряные карточки">
+    <app-cards-storage cardsType="silver" />
+  </mat-tab>
+  <mat-tab label="Золотые карточки">
+    <app-cards-storage cardsType="gold" />
+  </mat-tab>
+  <mat-tab label="Легендарные карточки">
+    <app-cards-storage cardsType="legendary" />
+  </mat-tab>
 </mat-tab-group>

@@ -20,14 +20,21 @@ export class StorageService {
 
   addItem(item: ItemModelInterface, amount: number) {
     const storage = this.persistance.getItem('storage');
-    if (!storage[item.title]) storage[item.title] = 0;
-    storage[item.title] += amount;
-    if (storage[item.title] < 0) storage[item.title] = 0;
+    if (!storage[item.title]) storage[item.title] = { ...item, amount: 0 };
+    storage[item.title].amount += amount;
+    if (storage[item.title].amount < 0) storage[item.title].amount = 0;
     this.persistance.setItem('storage', storage);
   }
 
   getItem(item: ItemModelInterface) {
     const storage = this.persistance.getItem('storage');
-    return storage[item.title];
+    return storage[item.title]?.amount;
+  }
+
+  getCards(type: string) {
+    const commonCards = Object.values(
+      this.persistance.getItem('storage'),
+    )?.filter((card: any) => card.entity === 'card' && card.type === type);
+    return commonCards;
   }
 }
