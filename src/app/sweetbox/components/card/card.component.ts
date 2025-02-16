@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { CardModelInterface } from '../../models/item.model';
 
 @Component({

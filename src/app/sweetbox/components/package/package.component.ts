@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import {
   CardModelInterface,
   ItemModelInterface,
@@ -19,6 +19,11 @@ import { ItemsDisplayComponent } from '../items-display/items-display.component'
   styleUrl: './package.component.scss',
 })
 export class PackageComponent {
+  @HostListener('window:keydown', ['$event'])
+  nextItem(event: KeyboardEvent) {
+    if (event.key === 'Enter') this.iterate();
+  }
+
   @Input() containerType: ContainerType = 'common';
   @Input() keyType: number = 0;
   @Input() itemsAmount: number = 10;

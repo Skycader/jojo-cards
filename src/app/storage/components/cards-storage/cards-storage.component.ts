@@ -11,7 +11,7 @@ import { CardModelInterface } from '../../models/card.model';
 export class CardsStorageComponent {
   @Input() cardsType!: string;
 
-  constructor(private storage: StorageService) {}
+  constructor(private storage: StorageService) { }
 
   public cards: CardModelInterface[] = [];
 
