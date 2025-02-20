@@ -1,9 +1,9 @@
 <div class="progress-container">
   <div class="progress-bar">
-    <div class="progress" id="progress"></div>
+    <div class="progress" id="progress" [style.width]="progress"></div>
   </div>
   <div class="progress-info" id="progressInfo">
-    Найдено: {{ cards.length }} / {{ 101 }}
+    Найдено: {{ cards.length }} / {{ cardsTotal[cardsType] }}
   </div>
 </div>
 
