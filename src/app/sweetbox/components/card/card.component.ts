@@ -19,6 +19,15 @@ export class CardComponent {
     setTimeout(() => (this.card.isShowingTitle = true), 300);
   }
 
+  flip2(e: any) {
+    if (this.card.info !== 'Дубль') return;
+    if (this.flipped) return;
+    if (!this.flipped) e.stopPropagation();
+    this.playSound();
+    this.flipped = !this.flipped;
+    setTimeout(() => (this.card.isShowingTitle = true), 300);
+  }
+
   playSound() {
     var audio = new Audio('assets/audio/slip.mp3');
     audio.play();

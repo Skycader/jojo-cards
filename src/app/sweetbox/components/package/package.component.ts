@@ -117,7 +117,7 @@ export class PackageComponent {
           amount: 0,
         };
       })
-      .filter((card) => card.info !== 'Дубль')
+      // .filter((card) => card.info !== 'Дубль')
       .reduce((acc: any, item) => {
         const key = item.title;
 
@@ -143,7 +143,9 @@ export class PackageComponent {
 
       this.storageService.addItem(currentItem, currentItem.amount);
 
-      // this.playAudio(this.items[this.iterator].sound);
+      if (this.items[this.iterator].info !== 'Дубль')
+        this.playAudio(this.items[this.iterator].sound);
+
       this.items[this.iterator].isTaken = true;
       let copy = this.iterator;
       // setTimeout(() => {
@@ -163,6 +165,10 @@ export class PackageComponent {
         this.items = [];
       }, 800);
     }
+
+    setTimeout(() => {
+      if (this.items[this.iterator].info === 'Дубль') this.iterate();
+    }, 1500);
   }
 
   public slide(event: any) {
