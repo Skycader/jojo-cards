@@ -5,7 +5,7 @@
     "initialize": "node src/config/init.js",
     "start": "yarn ntl -s 3 -A --exclude cy:open cy:run upload build start initialize",
     "serve": "ng serve --port 4300",
-    "build": "ng build --base-href https://skycader.github.io/sweetbox/",
+    "build": "ng build --base-href https://skycader.github.io/jojo-cards/",
     "upload": "npx angular-cli-ghpages --dir=dist/sweetbox/browser",
     "deploy": "yarn build && yarn upload",
     "serve-public": "ng serve --host 0.0.0.0 --port 4300",

@@ -21,7 +21,7 @@ import { ItemsDisplayComponent } from '../items-display/items-display.component'
 export class PackageComponent {
   @HostListener('window:keydown', ['$event'])
   nextItem(event: KeyboardEvent) {
-    if (event.key === 'Enter') this.iterate();
+    if (this.isShowingPackage) if (event.key === 'Enter') this.iterate();
   }
 
   @Input() containerType: ContainerType = 'common';

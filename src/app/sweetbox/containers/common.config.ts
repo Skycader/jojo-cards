@@ -48,12 +48,12 @@ Array.prototype.getRandomElement = function(): any | undefined {
 export const commonContainer = [
   ...[...commonCards].setChance(1), //Обычные карточки
   ...[...rareCards].setChance(10), //Редкие карточки,
-  ...[...superRareCards].setChance(100), //Редкие карточки,
-  ...[...ultraRareCards].setChance(1000), //Редкие карточки,
-  ...[...premiumCards].setChance(10000), //Редкие карточки,
-  ...[...silverCards].setChance(100000), //Редкие карточки,
-  ...[...goldCards].setChance(1000000), //Редкие карточки,
-  ...[...legendaryCards].setChance(10000000), //Редкие карточки,
+  ...[...superRareCards].setChance(100), //Супер-редкие карточки,
+  ...[...ultraRareCards].setChance(1000), //Ультра-редкие карточки,
+  ...[...premiumCards].setChance(10000), //Премиум карточки,
+  ...[...silverCards].setChance(100000), //Серебряные карточки,
+  ...[...goldCards].setChance(1000000), //Золотые карточки,
+  ...[...legendaryCards].setChance(10000000), //Легендарные карточки,
 ];
 
 function getRandomInt(min: number, max: number): number {
