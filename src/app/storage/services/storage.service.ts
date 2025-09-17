@@ -37,4 +37,8 @@ export class StorageService {
     )?.filter((card: any) => card.entity === 'card' && card.type === type);
     return commonCards;
   }
+
+  isCardFound(id: string) {
+    return Boolean(this.persistance.getItem('storage')[id]);
+  }
 }

@@ -21,6 +21,7 @@ export interface ItemModelInterface {
 }
 
 export interface CardModelInterface extends ItemModelInterface {
+  found?: boolean;
   shadow?: string;
   chance?: number;
   info: string;

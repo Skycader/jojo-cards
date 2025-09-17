@@ -27,9 +27,9 @@
           </mat-card-header>
           <div
             mat-card-image
-            style="background-image: url('{{
-              item.image
-            }}'); background-size: contain; height: calc(100% - 125px)"
+            style="
+              background-image: url('{{ item.image }}');
+              background-size: contain; height: calc(100% - 125px)"
           ></div>
           <mat-card-content>
             <p></p>
@@ -53,7 +53,8 @@
             </button>
 
             <button mat-raised-button color="primary">
-              Шанс выпдаения {{ item.probability }} %
+              Шанс выпдаения {{ item.probability }} % Найдена:
+              {{ isCardFound(item.title) }}
             </button>
           </mat-card-actions>
         </mat-card>

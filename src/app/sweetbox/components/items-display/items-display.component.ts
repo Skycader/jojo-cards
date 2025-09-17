@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { commonContainer } from '../../containers/common.config';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { StorageService } from '../../../storage/services/storage.service';
 
 @Component({
   selector: 'app-items-display',
@@ -58,10 +59,15 @@ export class ItemsDisplayComponent {
     @Inject(MAT_DIALOG_DATA)
     public data: { containerType: 'common' | 'rare' | 'epic' | 'legendary' },
     private dialogRef: MatDialogRef<ItemsDisplayComponent>,
+    private storageService: StorageService,
   ) { }
 
   public closeDialog() {
     this.dialogRef.close();
+  }
+
+  public isCardFound(id: string) {
+    this.storageService.isCardFound(id);
   }
 
   ngOnDestroy() {
