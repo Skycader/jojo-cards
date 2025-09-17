@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1757897679161,
+  "timestamp": 1758074713609,
   "index": "https://skycader.github.io/jojo-cards/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "https://skycader.github.io/jojo-cards/chunk-UHAJUPD2.js",
         "https://skycader.github.io/jojo-cards/favicon.ico",
         "https://skycader.github.io/jojo-cards/index.html",
-        "https://skycader.github.io/jojo-cards/main-FWPEGLJZ.js",
+        "https://skycader.github.io/jojo-cards/main-R72ERYCO.js",
         "https://skycader.github.io/jojo-cards/manifest.webmanifest",
         "https://skycader.github.io/jojo-cards/polyfills-6EAL64PA.js",
         "https://skycader.github.io/jojo-cards/scripts-EEEIPNC3.js",
@@ -815,8 +815,8 @@
     "https://skycader.github.io/jojo-cards/chunk-O2Y77LR3.js": "77699659566f2c80abfab7a8753c58a86d4b7d7c",
     "https://skycader.github.io/jojo-cards/chunk-UHAJUPD2.js": "0e91c3c4d558161289f4819d556960c0dd95f055",
     "https://skycader.github.io/jojo-cards/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "https://skycader.github.io/jojo-cards/index.html": "f364797be92ca14607284852d976ac21f218c864",
-    "https://skycader.github.io/jojo-cards/main-FWPEGLJZ.js": "27868a27cdc8d1c1c986910cfc36b43f34fbd62e",
+    "https://skycader.github.io/jojo-cards/index.html": "0ad7901e5a35dbf94fce41788b1291ff24514cda",
+    "https://skycader.github.io/jojo-cards/main-R72ERYCO.js": "0ac903f600a278cb95fa5042f5abd7a37d26dd82",
     "https://skycader.github.io/jojo-cards/manifest.webmanifest": "7e409b3eda002f072bbbb7209bbb8e348161b2af",
     "https://skycader.github.io/jojo-cards/media/ngrx-TUFBSF6A.png": "16f8345bd8980833ee4a5ae92c9c6b76251b90d3",
     "https://skycader.github.io/jojo-cards/polyfills-6EAL64PA.js": "d874147a12a6570d9b44e99935e9de8b7f3cabbc",
