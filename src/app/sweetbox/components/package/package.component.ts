@@ -137,6 +137,7 @@ export class PackageComponent {
   }
 
   iterate() {
+    console.log('iterate');
     this.playSound();
     if (this.items[this.iterator]) {
       const currentItem = this.items[this.iterator];
@@ -165,10 +166,6 @@ export class PackageComponent {
         this.items = [];
       }, 800);
     }
-
-    setTimeout(() => {
-      if (this.items[this.iterator].info === 'Дубль') this.iterate();
-    }, 1500);
   }
 
   public slide(event: any) {

@@ -29,6 +29,9 @@
             mat-card-image
             style="
               background-image: url('{{ item.image }}');
+              filter: {{
+              isCardFound(item.title) ? 'grayscale(0%)' : 'grayscale(100%)'
+            }};
               background-size: contain; height: calc(100% - 125px)"
           ></div>
           <mat-card-content>
@@ -44,18 +47,6 @@
               justify-content: space-between;
             "
           >
-            <button
-              color="primary"
-              [class.accent]="item?.amt"
-              mat-raised-button
-            >
-              {{ item?.amt ? item.amt : 1 }} шт.
-            </button>
-
-            <button mat-raised-button color="primary">
-              Шанс выпдаения {{ item.probability }} % Найдена:
-              {{ isCardFound(item.title) }}
-            </button>
           </mat-card-actions>
         </mat-card>
       </div>

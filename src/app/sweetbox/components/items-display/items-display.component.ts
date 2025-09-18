@@ -67,7 +67,7 @@ export class ItemsDisplayComponent {
   }
 
   public isCardFound(id: string) {
-    this.storageService.isCardFound(id);
+    return this.storageService.isCardFound(id);
   }
 
   ngOnDestroy() {
